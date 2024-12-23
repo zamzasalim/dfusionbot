@@ -64,6 +64,13 @@ if [ "$choice" -eq 1 ]; then
     echo "Done! Bot berjalan dalam session screen. Gunakan 'screen -r dfusion' untuk melihat log."
     screen -S dfusion -d -m node single.js
 
+    # Memeriksa apakah screen berhasil dijalankan
+    if [ $? -eq 0 ]; then
+        echo "Bot berhasil dijalankan dalam screen."
+    else
+        echo "Terjadi kesalahan saat menjalankan bot dalam screen."
+    fi
+
 elif [ "$choice" -eq 2 ]; then
     echo "Anda memilih Termux. Melanjutkan dengan pengaturan Termux..."
     # Di Termux, kita pastikan git dan npm sudah terinstal
@@ -102,11 +109,17 @@ elif [ "$choice" -eq 2 ]; then
     echo "Menginstal dependensi..."
     npm install
 
-    # Menjalankan aplikasi di background
+    # Menjalankan aplikasi di background tanpa log file
     echo "Menjalankan aplikasi di background..."
     nohup node single.js &
 
-    echo "Done! Bot berjalan di background. Anda dapat menutup terminal."
+    # Memeriksa apakah nohup berhasil dijalankan
+    if [ $? -eq 0 ]; then
+        echo "Bot berjalan di background."
+    else
+        echo "Terjadi kesalahan saat menjalankan bot di background."
+    fi
+
 else
     echo "Pilihan tidak valid. Mohon pilih 1 untuk VPS atau 2 untuk Termux."
 fi
