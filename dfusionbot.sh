@@ -62,7 +62,7 @@ if [ "$choice" -eq 1 ]; then
 
     # Menjalankan aplikasi dalam screen
     echo "Done! Bot berjalan dalam session screen. Gunakan 'screen -r dfusion' untuk melihat log."
-    screen -S dfusion -d -m node main.js
+    screen -S dfusion -d -m node single.js
 
 elif [ "$choice" -eq 2 ]; then
     echo "Anda memilih Termux. Melanjutkan dengan pengaturan Termux..."
@@ -104,7 +104,7 @@ elif [ "$choice" -eq 2 ]; then
 
     # Menjalankan aplikasi di background
     echo "Menjalankan aplikasi di background..."
-    nohup node main.js &
+    nohup node single.js &
 
     echo "Done! Bot berjalan di background. Anda dapat menutup terminal."
 else
