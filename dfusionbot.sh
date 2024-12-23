@@ -61,10 +61,8 @@ if [ "$choice" -eq 1 ]; then
     npm install
 
     # Menjalankan aplikasi dalam screen
-    echo "Menjalankan aplikasi dalam screen..."
-    screen -S dfusion -d -m node main.js
-
     echo "Done! Bot berjalan dalam session screen. Gunakan 'screen -r dfusion' untuk melihat log."
+    screen -S dfusion -d -m node main.js
 
 elif [ "$choice" -eq 2 ]; then
     echo "Anda memilih Termux. Melanjutkan dengan pengaturan Termux..."
